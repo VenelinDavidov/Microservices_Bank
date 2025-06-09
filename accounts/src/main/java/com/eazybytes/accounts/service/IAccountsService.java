@@ -1,8 +1,8 @@
 package com.eazybytes.accounts.service;
 
-import com.eazybytes.accounts.dto.CustomerRequest;
+import com.eazybytes.accounts.dto.CustomerDto;
 
 public interface IAccountsService {
 
-    void createAccount(CustomerRequest customerRequest);
+    void createAccount(CustomerDto customerRequest);
 }

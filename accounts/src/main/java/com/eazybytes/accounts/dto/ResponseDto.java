@@ -1,14 +1,15 @@
 package com.eazybytes.accounts.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
-public class ResponseRequest {
+public class ResponseDto {
 
     private String statusCode;
 
     private String statusMsg;
+
+
 
 }

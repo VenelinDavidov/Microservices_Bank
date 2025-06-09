@@ -1,29 +1,23 @@
 package com.eazybytes.accounts.mapper;
 
-import com.eazybytes.accounts.dto.CustomerRequest;
+import com.eazybytes.accounts.dto.CustomerDto;
 import com.eazybytes.accounts.entity.Customer;
 
 public class CustomerMapper {
 
 
-     // from entity to dto
-    public static CustomerRequest mapToCustomerRequest(Customer customer, CustomerRequest customerRequest) {
 
-        customerRequest.setName (customer.getName ());
-        customerRequest.setEmail (customer.getEmail ());
-        customerRequest.setMobileNumber (customer.getMobileNumber ());
+     public static CustomerDto mapToCustomerDto(Customer customer, CustomerDto customerDto) {
+         customerDto.setName(customer.getName());
+         customerDto.setEmail(customer.getEmail());
+         customerDto.setMobileNumber(customer.getMobileNumber());
+         return customerDto;
+     }
 
-        return customerRequest;
-    }
-
-
-    // from dto to entity
-    public static Customer mapToCustomer(CustomerRequest customerRequest, Customer customer) {
-
-        customer.setName (customerRequest.getName ());
-        customer.setEmail (customerRequest.getEmail ());
-        customer.setMobileNumber (customerRequest.getMobileNumber ());
-
+    public static Customer mapToCustomer(CustomerDto customerDto, Customer customer) {
+        customer.setName(customerDto.getName());
+        customer.setEmail(customerDto.getEmail());
+        customer.setMobileNumber(customerDto.getMobileNumber());
         return customer;
     }
 }
