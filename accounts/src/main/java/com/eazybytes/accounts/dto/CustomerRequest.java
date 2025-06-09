@@ -1,11 +1,10 @@
 package com.eazybytes.accounts.dto;
 
-import lombok.Builder;
+
 import lombok.Data;
 
 @Data
-@Builder
-public class CustomerDto {
+public class CustomerRequest {
 
     private String name;
 

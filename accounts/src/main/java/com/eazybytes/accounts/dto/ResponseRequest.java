@@ -4,7 +4,7 @@ import lombok.*;
 
 @Data
 @AllArgsConstructor
-public class ResponseDto {
+public class ResponseRequest {
 
     private String statusCode;
 

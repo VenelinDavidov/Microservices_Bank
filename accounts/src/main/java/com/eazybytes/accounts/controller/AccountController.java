@@ -1,8 +1,8 @@
 package com.eazybytes.accounts.controller;
 
 import com.eazybytes.accounts.constants.AccountConstants;
-import com.eazybytes.accounts.dto.CustomerDto;
-import com.eazybytes.accounts.dto.ResponseDto;
+import com.eazybytes.accounts.dto.CustomerRequest;
+import com.eazybytes.accounts.dto.ResponseRequest;
 import com.eazybytes.accounts.service.IAccountsService;
 
 
@@ -29,13 +29,13 @@ public class AccountController {
 
 
     @PostMapping("/create")
-    public ResponseEntity<ResponseDto> createAccount(@Valid @RequestBody CustomerDto customerDto) {
+    public ResponseEntity<ResponseRequest> createAccount(@Valid @RequestBody CustomerRequest customerDto) {
 
         iAccountsService.createAccount(customerDto);
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(new ResponseDto(AccountConstants.STATUS_201 , AccountConstants.MESSAGE_201));
+                .body(new ResponseRequest (AccountConstants.STATUS_201 , AccountConstants.MESSAGE_201));
     }
 
 

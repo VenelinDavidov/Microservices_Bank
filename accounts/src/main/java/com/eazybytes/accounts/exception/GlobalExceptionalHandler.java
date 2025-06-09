@@ -1,6 +1,6 @@
 package com.eazybytes.accounts.exception;
 
-import com.eazybytes.accounts.dto.ErrorResponseDto;
+import com.eazybytes.accounts.dto.ErrorResponseRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -15,9 +15,9 @@ public class GlobalExceptionalHandler extends ResponseEntityExceptionHandler {
 
 
     @ExceptionHandler (CustomerAlreadyExistException.class)
-    public ResponseEntity<ErrorResponseDto> handleCustomerAlreadyExistsException(CustomerAlreadyExistException exception, WebRequest webRequest){
+    public ResponseEntity<ErrorResponseRequest> handleCustomerAlreadyExistsException(CustomerAlreadyExistException exception, WebRequest webRequest){
 
-        ErrorResponseDto errorResponseDTO = new ErrorResponseDto(
+        ErrorResponseRequest errorResponseDTO = new ErrorResponseRequest (
                 webRequest.getDescription(false),
                 HttpStatus.BAD_REQUEST.toString (),
                 exception.getMessage(),
