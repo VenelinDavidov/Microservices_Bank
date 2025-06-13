@@ -11,4 +11,6 @@ public interface IAccountsService {
 
     CustomerRequest fetchAccountDetails(String mobileNumber);
 
+    boolean deleteAccount(String mobileNumber);
+
 }

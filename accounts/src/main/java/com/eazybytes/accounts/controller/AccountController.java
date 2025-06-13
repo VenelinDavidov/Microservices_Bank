@@ -56,12 +56,34 @@ public class AccountController {
 
 
     @GetMapping("/fetch")
-    public ResponseEntity <CustomerRequest> fetchAccountDetails(@RequestParam @Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile number should be of 10 digits")
+    public ResponseEntity <CustomerRequest> fetchAccountDetails(@RequestParam
+                                                                    @Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile number should be of 10 digits")
                                                                     String mobileNumber) {
         CustomerRequest customerRequest = iAccountsService.fetchAccountDetails (mobileNumber);
 
         return ResponseEntity
                 .status (HttpStatus.OK)
                 .body (customerRequest);
+    }
+
+
+
+
+    @DeleteMapping("/delete")
+    public ResponseEntity <ResponseRequest> deleteAccountDetails(@RequestParam
+                                                                     @Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile number should be of 10 digits")
+                                                                     String mobileNumber) {
+
+        boolean isDeleted = iAccountsService.deleteAccount (mobileNumber);
+
+        if (isDeleted) {
+            return ResponseEntity
+                    .status (HttpStatus.OK)
+                    .body (new ResponseRequest (AccountConstants.STATUS_200, AccountConstants.MESSAGE_200));
+        }else {
+            return ResponseEntity
+                    .status (HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body (new ResponseRequest (AccountConstants.STATUS_500, AccountConstants.MESSAGE_500));
+        }
     }
 }
