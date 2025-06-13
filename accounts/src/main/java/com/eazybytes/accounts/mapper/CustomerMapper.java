@@ -6,7 +6,6 @@ import com.eazybytes.accounts.entity.Customer;
 public class CustomerMapper {
 
 
-
      public static CustomerRequest mapToCustomerDto(Customer customer, CustomerRequest customerDto) {
          customerDto.setName(customer.getName());
          customerDto.setEmail(customer.getEmail());
@@ -14,10 +13,10 @@ public class CustomerMapper {
          return customerDto;
      }
 
-    public static Customer mapToCustomer(CustomerRequest customerDto, Customer customer) {
-        customer.setName(customerDto.getName());
-        customer.setEmail(customerDto.getEmail());
-        customer.setMobileNumber(customerDto.getMobileNumber());
+    public static Customer mapToCustomer(CustomerRequest customerRequest, Customer customer) {
+        customer.setName(customerRequest.getName());
+        customer.setEmail(customerRequest.getEmail());
+        customer.setMobileNumber(customerRequest.getMobileNumber());
         return customer;
     }
 }

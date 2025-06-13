@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
-public class ErrorResponseRequest {
+public class    ErrorResponseRequest {
 
     private String apiPath;
 

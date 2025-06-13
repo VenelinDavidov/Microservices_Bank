@@ -11,4 +11,6 @@ public class CustomerRequest {
     private String email;
 
     private String mobileNumber;
+
+    private AccountsRequest accountsDto;
 }

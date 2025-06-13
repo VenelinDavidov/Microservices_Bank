@@ -6,19 +6,21 @@ import com.eazybytes.accounts.entity.Accounts;
 
 public class AccountsMapper {
 
-    public static AccountsRequest mapToAccountsDto(Accounts accounts, AccountsRequest accountsDto) {
+    //from entity to dto
+    public static AccountsRequest mapToAccountsDto(Accounts accounts, AccountsRequest accountsRequest) {
 
-        accountsDto.setAccountNumber(accounts.getAccountNumber());
-        accountsDto.setAccountType(accounts.getAccountType());
-        accountsDto.setBranchAddress(accounts.getBranchAddress());
-        return accountsDto;
+        accountsRequest.setAccountNumber(accounts.getAccountNumber());
+        accountsRequest.setAccountType(accounts.getAccountType());
+        accountsRequest.setBranchAddress(accounts.getBranchAddress());
+        return accountsRequest;
     }
 
-    public static Accounts mapToAccounts(AccountsRequest accountsDto, Accounts accounts) {
+    // from dto to entity
+    public static Accounts mapToAccounts(AccountsRequest accountsRequest, Accounts accounts) {
 
-        accounts.setAccountNumber(accountsDto.getAccountNumber());
-        accounts.setAccountType(accountsDto.getAccountType());
-        accounts.setBranchAddress(accountsDto.getBranchAddress());
+        accounts.setAccountNumber(accountsRequest.getAccountNumber());
+        accounts.setAccountType(accountsRequest.getAccountType());
+        accounts.setBranchAddress(accountsRequest.getBranchAddress());
         return accounts;
     }
 
