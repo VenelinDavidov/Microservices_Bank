@@ -36,6 +36,8 @@ public class GlobalExceptionalHandler extends ResponseEntityExceptionHandler {
     }
 
 
+
+
     @ExceptionHandler (Exception.class)
     public ResponseEntity<ErrorResponseRequest> handleGlobalException(Exception exception, WebRequest webRequest) {
 
