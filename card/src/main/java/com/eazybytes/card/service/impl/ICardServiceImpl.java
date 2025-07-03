@@ -1,6 +1,6 @@
 package com.eazybytes.card.service.impl;
 
-import com.eazybytes.card.dto.CardsDto;
+import com.eazybytes.card.dto.CardsRequest;
 import com.eazybytes.card.service.ICardService;
 
 public class ICardServiceImpl implements ICardService {
@@ -11,12 +11,12 @@ public class ICardServiceImpl implements ICardService {
     }
 
     @Override
-    public CardsDto fetchCard(String mobileNumber) {
+    public CardsRequest fetchCard(String mobileNumber) {
         return null;
     }
 
     @Override
-    public boolean updateCard(CardsDto cardsDto) {
+    public boolean updateCard(CardsRequest cardsDto) {
         return false;
     }
 

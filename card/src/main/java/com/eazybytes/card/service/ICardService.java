@@ -1,6 +1,6 @@
 package com.eazybytes.card.service;
 
-import com.eazybytes.card.dto.CardsDto;
+import com.eazybytes.card.dto.CardsRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,7 +18,7 @@ public interface ICardService {
      * @param mobileNumber - Input mobile Number
      *  @return Card Details based on a given mobileNumber
      */
-    CardsDto fetchCard(String mobileNumber);
+    CardsRequest fetchCard(String mobileNumber);
 
 
     /**
@@ -26,7 +26,7 @@ public interface ICardService {
      * @param cardsDto - CardsDto Object
      * @return boolean indicating if the update of card details is successful or not
      */
-    boolean updateCard(CardsDto cardsDto);
+    boolean updateCard(CardsRequest cardsDto);
 
     /**
      *
