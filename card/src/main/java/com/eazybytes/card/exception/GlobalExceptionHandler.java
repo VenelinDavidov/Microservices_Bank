@@ -25,10 +25,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
     protected ResponseEntity <Object> handleMethodArgumentNotValid(
-            MethodArgumentNotValidException ex,
-            HttpHeaders headers,
-            HttpStatusCode status,
-            WebRequest request) {
+                                        MethodArgumentNotValidException ex,
+                                        HttpHeaders headers,
+                                        HttpStatusCode status,
+                                        WebRequest request) {
 
         Map <String, String> validationErrors = new HashMap <> ();
         List <ObjectError> validationErrorsList = ex.getBindingResult ().getAllErrors ();
@@ -59,6 +59,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 .body (errorResponseDto);
     }
 
+
+
    @ExceptionHandler (ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponseDto> handleResourceNotFoundException (ResourceNotFoundException exception, WebRequest webRequest) {
 
@@ -71,6 +73,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
         return new ResponseEntity<>(errorResponseDto, HttpStatus.NOT_FOUND);
     }
+
+
 
      @ExceptionHandler (CardAlreadyExistsException.class)
     public ResponseEntity<ErrorResponseDto> handlerCardAlreadyExistsException (CardAlreadyExistsException exception, WebRequest webRequest) {
