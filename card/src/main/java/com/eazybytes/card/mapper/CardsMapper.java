@@ -1,11 +1,11 @@
 package com.eazybytes.card.mapper;
 
-import com.eazybytes.card.dto.CardsRequest;
+import com.eazybytes.card.dto.CardsDto;
 import com.eazybytes.card.entity.Cards;
 
 public class CardsMapper {
 
-    public  static CardsRequest mapToCardsDto(Cards cards, CardsRequest cardsDto) {
+    public  static CardsDto mapToCardsDto(Cards cards, CardsDto cardsDto) {
 
         cardsDto.setMobileNumber(cards.getMobileNumber());
         cardsDto.setCardNumber(cards.getCardNumber());
@@ -18,7 +18,7 @@ public class CardsMapper {
     }
 
 
-    public static Cards mapToCards(CardsRequest cardsDto, Cards cards) {
+    public static Cards mapToCards(CardsDto cardsDto, Cards cards) {
 
         cards.setCardType (cardsDto.getCardType());
         cards.setTotalLimit (cardsDto.getTotalLimit());
