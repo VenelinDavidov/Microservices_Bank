@@ -19,6 +19,8 @@ public class CardsDto {
     )
     private String mobileNumber;
 
+
+
     @NotEmpty(message = "Card Number can not be a null or empty")
     @Pattern(regexp="(^$|[0-9]{12})",message = "CardNumber must be 12 digits")
     @Schema(
@@ -26,11 +28,15 @@ public class CardsDto {
     )
     private String cardNumber;
 
+
+
     @NotEmpty(message = "CardType can not be a null or empty")
     @Schema(
             description = "Type of the card", example = "Credit Card"
     )
     private String cardType;
+
+
 
     @Positive(message = "Total card limit should be greater than zero")
     @Schema(
@@ -38,11 +44,15 @@ public class CardsDto {
     )
     private int totalLimit;
 
+
+
     @PositiveOrZero(message = "Total amount used should be equal or greater than zero")
     @Schema(
             description = "Total amount used by a Customer", example = "1000"
     )
     private int amountUsed;
+
+
 
     @PositiveOrZero(message = "Total available amount should be equal or greater than zero")
     @Schema(

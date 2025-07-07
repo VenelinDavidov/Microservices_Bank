@@ -20,12 +20,12 @@ public class CardsMapper {
 
     public static Cards mapToCards(CardsDto cardsDto, Cards cards) {
 
-        cards.setCardType (cardsDto.getCardType());
-        cards.setTotalLimit (cardsDto.getTotalLimit());
-        cards.setAmountUsed (cardsDto.getAmountUsed());
-        cards.setAvailableAmount (cardsDto.getAvailableAmount());
-        cards.setMobileNumber (cardsDto.getMobileNumber());
-        cards.setCardNumber (cardsDto.getCardNumber());
+        cards.setCardNumber(cardsDto.getCardNumber());
+        cards.setCardType(cardsDto.getCardType());
+        cards.setMobileNumber(cardsDto.getMobileNumber());
+        cards.setTotalLimit(cardsDto.getTotalLimit());
+        cards.setAvailableAmount(cardsDto.getAvailableAmount());
+        cards.setAmountUsed(cardsDto.getAmountUsed());
 
         return cards;
     }

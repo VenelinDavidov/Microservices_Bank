@@ -4,6 +4,8 @@ import com.eazybytes.card.constants.CardsConstants;
 import com.eazybytes.card.dto.CardsDto;
 import com.eazybytes.card.entity.Cards;
 import com.eazybytes.card.exception.CardAlreadyExistsException;
+import com.eazybytes.card.exception.ResourceNotFoundException;
+import com.eazybytes.card.mapper.CardsMapper;
 import com.eazybytes.card.repository.CardRepository;
 import com.eazybytes.card.service.ICardService;
 import lombok.AllArgsConstructor;
@@ -62,9 +64,6 @@ public class ICardServiceImpl implements ICardService {
                 .availableAmount (CardsConstants.NEW_CARD_LIMIT)
                 .build ();
 
-              cards.setCreatedAt (LocalDateTime.now ());
-              cards.setCreatedBy ("Admin");
-
         return cards;
     }
 
@@ -72,14 +71,26 @@ public class ICardServiceImpl implements ICardService {
 
     @Override
     public CardsDto fetchCard(String mobileNumber) {
-        return null;
+
+        Cards cards = cardRepository
+                .findByMobileNumber (mobileNumber)
+                .orElseThrow (() -> new ResourceNotFoundException ("Card", "MobileNumber", mobileNumber));
+
+        return CardsMapper.mapToCardsDto (cards, new CardsDto ());
     }
 
 
 
     @Override
     public boolean updateCard(CardsDto cardsDto) {
-        return false;
+
+        Cards cards = cardRepository
+                .findByCardNumber (cardsDto.getCardNumber ())
+                .orElseThrow (() -> new ResourceNotFoundException ("Card", "CardNumber", cardsDto.getCardNumber ()));
+
+        CardsMapper.mapToCards (cardsDto, cards);
+        cardRepository.save (cards);
+        return true;
     }
 
 
@@ -87,6 +98,13 @@ public class ICardServiceImpl implements ICardService {
 
     @Override
     public boolean deleteCard(String mobileNumber) {
-        return false;
+
+        Cards cards = cardRepository
+                .findByMobileNumber (mobileNumber)
+                .orElseThrow (() -> new ResourceNotFoundException ("Card", "MobileNumber", mobileNumber));
+
+        cardRepository.deleteById (cards.getCardId ());
+
+        return true;
     }
 }
