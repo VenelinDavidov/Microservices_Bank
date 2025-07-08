@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class LoansResponse {
+public class ResponseLoansDto {
 
     private String statusCode;
 
