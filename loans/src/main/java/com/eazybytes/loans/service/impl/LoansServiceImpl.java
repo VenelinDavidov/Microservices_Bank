@@ -12,7 +12,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import java.util.Random;
 
 @Service
@@ -24,7 +23,9 @@ public class LoansServiceImpl implements ILoansService {
 
 
 
-
+    /**
+     * @param mobileNumber - Mobile Number of the Customer
+     */
 
     @Override
     public void createLoans(String mobileNumber) {
@@ -35,7 +36,10 @@ public class LoansServiceImpl implements ILoansService {
          loansRepository.save (createNewLoans (mobileNumber));
 
     }
-
+    /**
+     * @param mobileNumber - Mobile Number of the Customer
+     * @return the new loan details
+     */
     private Loans createNewLoans(String mobileNumber) {
 
 
@@ -52,6 +56,13 @@ public class LoansServiceImpl implements ILoansService {
         return loans;
     }
 
+
+
+    /**
+     *
+     * @param mobileNumber - Input mobile Number
+     * @return Loan Details based on a given mobileNumber
+     */
     @Override
     public LoansRequest fetchLoans(String mobileNumber) {
 
@@ -62,13 +73,39 @@ public class LoansServiceImpl implements ILoansService {
         return LoansMapper.mapToLoansRequest (loans, new LoansRequest ());
     }
 
+
+
+    /**
+     *
+     * @param loansDto - LoansDto Object
+     * @return boolean indicating if the update of loan details is successful or not
+     */
     @Override
     public boolean updateLoans(LoansRequest loansDto) {
-        return false;
+
+        Loans loans = loansRepository
+                .findByLoanNumber (loansDto.getLoanNumber ())
+                .orElseThrow (() -> new ResourceNotFoundException ("Loan", "LoanNumber", loansDto.getLoanNumber ()));
+
+        LoansMapper.mapToLoans (loansDto, loans);
+        loansRepository.save (loans);
+        return true;
     }
+
+
+
+    /**
+     * @param mobileNumber - Input MobileNumber
+     * @return boolean indicating if the delete of loan details is successful or not
+     */
 
     @Override
     public boolean deleteLoans(String mobileNumber) {
-        return false;
+
+        Loans loans = loansRepository
+                .findByMobileNumber (mobileNumber)
+                .orElseThrow (() -> new ResourceNotFoundException ("Loan", "MobileNumber", mobileNumber));
+        loansRepository.deleteById (loans.getLoanId ());
+        return true;
     }
 }
