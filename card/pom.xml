@@ -10,7 +10,8 @@
     </parent>
     <groupId>com.eazybytes</groupId>
     <artifactId>card</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
+
     <name>card</name>
     <description>card</description>
     <url/>
@@ -73,12 +74,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.eazybytes</groupId>
-            <artifactId>accounts</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
+
     </dependencies>
 
     <build>
