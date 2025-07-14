@@ -7,9 +7,9 @@ COPY target/accounts-1.0.1-SNAPSHOT.jar accounts-1.0.1-SNAPSHOT.jar
 
 # MAINTAINER instruction is deprecated in favor of using label
 # MAINTAINER eazybytes.com
-#Information around who maintains the image
 
-#LABEL "org.opencontainers.image.authors"="venelindavidov"
+#Information around who maintains the image
+LABEL "org.opencontainers.image.authors"="venelindavidov"
 #MAINTAINER venelindavidov
 
 
@@ -18,7 +18,18 @@ COPY target/accounts-1.0.1-SNAPSHOT.jar accounts-1.0.1-SNAPSHOT.jar
 ENTRYPOINT ["java", "-jar", "accounts-1.0.1-SNAPSHOT.jar"]
 
 
+
+
+
+
+
 #COMMANDS DOCKER
-# command for docker image - docker build -t accounts ./accounts --- build the image                       (docker build. -t venelindavidov/accounts )
+# command for docker image -  docker build . -t venelindavidov/accounts:s4 --- build the image                       (docker build. -t venelindavidov/accounts )
 # docker run -p 8080:8080 accounts ---- single container                                                   (docker run -p 8080:8080 venelindavidov/accounts:s4)
 # docker run -d -p 8080:8080 accounts ---- many containers can run the same image
+
+
+
+#Build Docker and run
+# BuildPacking    docker run -d -p 8090:8090 venelindavidov/loans:s4
+# Google jib      docker run -d -p 9000:9000 venelindavidov/card:s4

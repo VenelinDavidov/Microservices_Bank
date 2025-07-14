@@ -11,7 +11,7 @@
     <groupId>com.eazybytes</groupId>
     <artifactId>card</artifactId>
     <version>1.0.2-SNAPSHOT</version>
-
+    <packaging>jar</packaging>
     <name>card</name>
     <description>card</description>
     <url/>
@@ -94,6 +94,16 @@
                             <version>${lombok.version}</version>
                         </path>
                     </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.4.6</version>
+                <configuration>
+                    <to>
+                        <image>venelindavidov/${project.artifactId}:s4</image>
+                    </to>
                 </configuration>
             </plugin>
         </plugins>
