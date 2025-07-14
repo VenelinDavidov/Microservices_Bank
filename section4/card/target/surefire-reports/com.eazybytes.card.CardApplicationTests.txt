@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.eazybytes.card.CardApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.25 s -- in com.eazybytes.card.CardApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.87 s -- in com.eazybytes.card.CardApplicationTests
