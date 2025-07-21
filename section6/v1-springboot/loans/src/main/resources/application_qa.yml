@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+
+build:
+  version: "4.0"
+
+loans:
+  message: "Welcome to EazyBank Loans related local APIs "
+  contactDetails:
+    name: "Charley Sheen"
+    email: "charley.sheen@eb.com"
+  onCallSupport:
+    - (412) 520-4575
+    - (915) 789-9874
