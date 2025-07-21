@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+
+build:
+  version: "7.0"
+
+loans:
+  message: "Welcome to EazyBank Loans related local APIs "
+  contactDetails:
+    name: "Bastian Sheen"
+    email: "bastian.sheen@eb.com"
+  onCallSupport:
+    - (412) 520-4575
+    - (915) 154-8789

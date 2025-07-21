@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome to EazyBank accounts related prod APIs "
+  contactDetails:
+    name: "John Lock - Product Owner"
+    email: "johnlock@eazybank.com"
+  onCallSupport:
+    - (555) 222-1256
+    - (555) 222-1243

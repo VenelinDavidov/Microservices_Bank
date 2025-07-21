@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+
+build:
+  version: "2.0"
+
+card:
+  message: "Welcome to EazyBank cards related local APIs "
+  contactDetails:
+    name: "Peter Parker - Developer"
+    email: "peter.parker@eb.com"
+  onCallSupport:
+    - (412) 412-3214
+    - (915) 356-6547
