@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: "gatewayserver"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false              # default behaviour is true, so we need to explicitly set it to false, because we don't have other configs which my gateway server fetch Eureka server
+          lowerCaseServiceId: true             #this is lover case service id
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "gatewayserver"
+    description: "Eazy Bank Gateway Server Application"
+    version: "1.0.0"
+
+
+
+logging:
+  level:
+    com:
+      eazybytes:
+        gatewayserver: DEBUG
