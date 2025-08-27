@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: "gatewayserver"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false              # default behaviour is true, so we need to explicitly set it to false, because we don't have other configs which my gateway server fetch Eureka server
+          lowerCaseServiceId: true             #this is lover case service id
+      httpclient:
+        connect-timeout: 10000
+        response-timeout: 5s
+  data:
+    redis:
+      connect-timeout: 2s
+      host: "localhost"
+      port: 6379
+      timeout: 2s
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "gatewayserver"
+    description: "Eazy Bank Gateway Server Application"
+    version: "1.0.0"
+
+
+
+logging:
+  level:
+    com:
+      eazybytes:
+        gatewayserver: DEBUG
+
+
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 2
+      failureRateThreshold: 50
+      waitDurationInOpenState: 10000
